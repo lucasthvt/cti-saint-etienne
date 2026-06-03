@@ -345,6 +345,16 @@ footer { background:var(--white);padding:3rem 2.5rem; }
 .tf-text { font-size:.84rem; font-weight:300; line-height:1.75; color:var(--mid); }
 .tf-text strong { color:var(--navy); font-weight:600; }
 
+/* barre de filtres par mois */
+.tf-filter { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:2.4rem; }
+.tf-fbtn { font-family:var(--fd); font-weight:700; font-size:.74rem; letter-spacing:.04em; padding:.5rem 1rem; border-radius:30px; border:1px solid var(--line); background:var(--white); color:var(--mid); cursor:pointer; transition:.25s; }
+.tf-fbtn:hover { border-color:var(--teal); color:var(--navy); }
+.tf-fbtn.on { background:var(--navy); border-color:var(--navy); color:#fff; }
+.tf-fbtn .tf-fcount { opacity:.55; margin-left:.35rem; font-weight:400; }
+.tf-empty { display:none; text-align:center; padding:3rem 0; color:var(--muted); font-size:.9rem; }
+/* mode filtré : items masqués, pas d'alternance forcée */
+.tf-item.hide { display:none; }
+
 @media(max-width:900px){
   .tf-wrap { margin-top:3rem; }
   .tf-axis { left:9px; transform:none; }
@@ -633,7 +643,21 @@ footer { background:var(--white);padding:3rem 2.5rem; }
     <div class="chip rv">03 — Temps forts</div>
     <div class="g2 rv" style="align-items:end;">
       <h2 class="H">Les temps forts<br><span class="ac">de 2016</span></h2>
-      <p class="body-p" style="padding-bottom:.4rem;">Retour, mois par mois, sur les événements qui ont marqué l'année du CTI XXX&nbsp;: montées en charge, audits, déploiements et résultats. <strong style="color:var(--navy);font-weight:500;">Faites défiler</strong> pour parcourir la chronologie.</p>
+      <p class="body-p" style="padding-bottom:.4rem;">Retour, mois par mois, sur les événements qui ont marqué l'année du CTI XXX&nbsp;: montées en charge, audits, déploiements et résultats. <strong style="color:var(--navy);font-weight:500;">Faites défiler</strong> pour parcourir la chronologie, ou choisissez un mois ci-dessous.</p>
+    </div>
+    <div class="tf-filter rv" id="tf-filter">
+      <button class="tf-fbtn on" data-m="all">Toute l'année</button>
+      <button class="tf-fbtn" data-m="01">Janvier</button>
+      <button class="tf-fbtn" data-m="02">Février</button>
+      <button class="tf-fbtn" data-m="03">Mars</button>
+      <button class="tf-fbtn" data-m="04">Avril</button>
+      <button class="tf-fbtn" data-m="05">Mai</button>
+      <button class="tf-fbtn" data-m="06">Juin</button>
+      <button class="tf-fbtn" data-m="07">Juillet</button>
+      <button class="tf-fbtn" data-m="09">Septembre</button>
+      <button class="tf-fbtn" data-m="10">Octobre</button>
+      <button class="tf-fbtn" data-m="11">Novembre</button>
+      <button class="tf-fbtn" data-m="12">Décembre</button>
     </div>
   </div>
 
@@ -642,151 +666,152 @@ footer { background:var(--white);padding:3rem 2.5rem; }
 
     <div class="tf-cap rv">JANVIER</div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="01">
       <div class="tf-card">
-        <div class="tf-date">Janvier 2016</div>
+        <div class="tf-date">11 janvier 2016</div>
         <div class="tf-title">Intégration de nouvelles CPAM partenaires</div>
         <div class="tf-text">Le périmètre de <strong>Recette Fonctionnelle</strong> s'élargit avec l'arrivée de nouvelles caisses primaires, renforçant le rôle du CTI au sein du réseau.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="01">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Janvier 2016</div>
+        <div class="tf-date">25 janvier 2016</div>
         <div class="tf-title">Lancement du plan de charge annuel</div>
         <div class="tf-text">Cadrage des <strong>objectifs de production et de recette</strong> pour l'exercice, en lien avec la Caisse Nationale et les organismes du réseau.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="02">
       <div class="tf-card">
-        <div class="tf-date">Février 2016</div>
+        <div class="tf-date">15 février 2016</div>
         <div class="tf-title">Renouvellement du parc serveurs</div>
         <div class="tf-text">Modernisation d'une partie de l'infrastructure&nbsp;: <strong>nouvelles baies et virtualisation</strong> pour gagner en capacité et en résilience.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="03">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Mars 2016</div>
+        <div class="tf-date">7 mars 2016</div>
         <div class="tf-title">Montée de version de l'infrastructure</div>
         <div class="tf-text">Opération de <strong>mise à niveau des environnements de production</strong> menée sans interruption de service, en coordination avec les équipes d'exploitation.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="03">
       <div class="tf-card">
-        <div class="tf-date">Mars 2016</div>
+        <div class="tf-date">21 mars 2016</div>
         <div class="tf-title">Campagne de tests de charge</div>
         <div class="tf-text">Vérification du comportement des applications sous forte sollicitation pour <strong>anticiper les pics d'activité</strong> du réseau.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="04">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Avril 2016</div>
+        <div class="tf-date">12 avril 2016</div>
         <div class="tf-title">Audit PSSI annuel</div>
         <div class="tf-text">Le contrôle annuel de sécurité confirme <strong>100&nbsp;% des items conformes</strong>, validant la robustesse des dispositifs de protection du système d'information.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="05">
       <div class="tf-card">
-        <div class="tf-date">Mai 2016</div>
+        <div class="tf-date">9 mai 2016</div>
         <div class="tf-title">Optimisation du support utilisateurs</div>
         <div class="tf-text">Amélioration des processus de traitement via <strong>SCCD</strong>&nbsp;: réduction des délais de prise en charge et meilleur suivi des incidents.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="06">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Juin 2016</div>
+        <div class="tf-date">6 juin 2016</div>
         <div class="tf-title">Extension de l'offre de Préproduction</div>
         <div class="tf-text">Le CTI poursuit la <strong>montée en charge des activités de préproduction</strong> par l'ajout de nouveaux environnements et l'élargissement de son catalogue de services.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="06">
       <div class="tf-card">
-        <div class="tf-date">Juin 2016</div>
+        <div class="tf-date">27 juin 2016</div>
         <div class="tf-title">Bilan semestriel</div>
         <div class="tf-text">Revue de mi-année des indicateurs&nbsp;: <strong>disponibilité, qualité de service et avancement des projets</strong> conformes aux engagements.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="07">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Juillet 2016</div>
+        <div class="tf-date">18 juillet 2016</div>
         <div class="tf-title">Préparation des opérations estivales</div>
         <div class="tf-text">Mise en place d'une <strong>organisation renforcée</strong> pour assurer la continuité du service durant la période de congés.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="09">
       <div class="tf-card">
-        <div class="tf-date">Septembre 2016</div>
+        <div class="tf-date">12 septembre 2016</div>
         <div class="tf-title">Plan de Continuité d'Activité</div>
         <div class="tf-text">Mise en œuvre et test du <strong>PCA</strong> pour garantir la résilience des services critiques en cas d'incident majeur.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="09">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Septembre 2016</div>
+        <div class="tf-date">26 septembre 2016</div>
         <div class="tf-title">Séminaire des équipes</div>
         <div class="tf-text">Journée de cohésion et de partage autour des <strong>bonnes pratiques et des projets à venir</strong>, réunissant l'ensemble des collaborateurs.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="10">
       <div class="tf-card">
-        <div class="tf-date">Octobre 2016</div>
+        <div class="tf-date">10 octobre 2016</div>
         <div class="tf-title">Déploiement national d'une application majeure</div>
         <div class="tf-text">Qualification puis mise en production d'une application déployée à l'échelle nationale, après une <strong>campagne de recette de bout en bout</strong>.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="11">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Novembre 2016</div>
+        <div class="tf-date">14 novembre 2016</div>
         <div class="tf-title">Certification des procédures qualité</div>
         <div class="tf-text">Consolidation du <strong>référentiel qualité</strong> et formalisation des procédures pour fiabiliser les opérations de production et de recette.</div>
       </div>
     </div>
 
-    <div class="tf-item left rv">
+    <div class="tf-item left rv" data-month="12">
       <div class="tf-card">
-        <div class="tf-date">Décembre 2016</div>
+        <div class="tf-date">5 décembre 2016</div>
         <div class="tf-title">Tête de classement CPG</div>
         <div class="tf-text">Le CTI clôt l'année en tête de classement avec des <strong>taux de réussite supérieurs à 97&nbsp;%</strong> sur ses objectifs CPG et l'intéressement.</div>
       </div>
       <div class="tf-node"></div>
     </div>
 
-    <div class="tf-item right rv">
+    <div class="tf-item right rv" data-month="12">
       <div class="tf-node"></div>
       <div class="tf-card">
-        <div class="tf-date">Décembre 2016</div>
+        <div class="tf-date">19 décembre 2016</div>
         <div class="tf-title">Bilan annuel et perspectives 2017</div>
         <div class="tf-text">Présentation des <strong>résultats de l'exercice</strong> et cadrage des grandes orientations pour l'année suivante.</div>
       </div>
     </div>
 
     <div class="tf-cap end rv">DÉCEMBRE</div>
+    <div class="tf-empty" id="tf-empty">Aucun temps fort pour ce mois.</div>
   </div>
 </section>
 
@@ -935,6 +960,38 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', update);
   update();
+
+  // filtre par mois
+  const filter = document.getElementById('tf-filter');
+  const caps   = [...wrap.querySelectorAll('.tf-cap')];
+  const empty  = document.getElementById('tf-empty');
+  if(filter){
+    filter.addEventListener('click', e => {
+      const btn = e.target.closest('.tf-fbtn');
+      if(!btn) return;
+      const m = btn.dataset.m;
+      filter.querySelectorAll('.tf-fbtn').forEach(b => b.classList.toggle('on', b===btn));
+      let visible = 0;
+      items.forEach(it => {
+        const show = (m === 'all') || (it.dataset.month === m);
+        it.classList.toggle('hide', !show);
+        if(show) visible++;
+      });
+      // ré-alterne gauche/droite parmi les cartes visibles
+      let k = 0;
+      items.forEach(it => {
+        if(it.classList.contains('hide')) return;
+        it.classList.toggle('left',  k % 2 === 0);
+        it.classList.toggle('right', k % 2 === 1);
+        k++;
+      });
+      // repères de début/fin et axe seulement en vue complète
+      caps.forEach(c => c.style.display = (m === 'all') ? '' : 'none');
+      wrap.querySelector('.tf-axis').style.display = (m === 'all') ? '' : 'none';
+      if(empty) empty.style.display = (visible === 0) ? 'block' : 'none';
+      requestAnimationFrame(update);
+    });
+  }
 })();
 
 </script>
